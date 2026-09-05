@@ -5,6 +5,581 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S1KO | Tech • Fashion • Lifestyle</title>
 
+    /* =====================================
+   CHECKOUT
+===================================== */
+
+.checkout-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.82);
+    backdrop-filter: blur(6px);
+    z-index: 10000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s ease;
+}
+
+.checkout-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.checkout-modal {
+    position: fixed;
+    top: 0;
+    right: -650px;
+
+    width: min(600px, 100%);
+    height: 100vh;
+
+    background: #0d0d0d;
+    color: white;
+
+    z-index: 10001;
+
+    overflow-y: auto;
+
+    border-left: 1px solid #272727;
+
+    transition: right .35s ease;
+}
+
+.checkout-modal.active {
+    right: 0;
+}
+
+
+/* HEADER */
+
+.checkout-header {
+    position: sticky;
+    top: 0;
+
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 23px 25px;
+
+    background: rgba(13,13,13,.96);
+
+    border-bottom: 1px solid #222;
+
+    backdrop-filter: blur(10px);
+}
+
+.checkout-small-title {
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    color: #ff6a00;
+}
+
+.checkout-header h2 {
+    margin: 3px 0 0;
+
+    font-size: 25px;
+}
+
+.close-checkout {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #1b1b1b;
+    color: white;
+
+    font-size: 26px;
+
+    cursor: pointer;
+}
+
+.close-checkout:hover {
+    background: #ff6a00;
+}
+
+
+/* CONTENT */
+
+.checkout-content {
+    padding: 25px;
+}
+
+.checkout-section {
+    margin-bottom: 35px;
+}
+
+.checkout-section h3 {
+    font-size: 17px;
+
+    margin: 0 0 18px;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #222;
+}
+
+
+/* FORM */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    color: #bbb;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 14px 15px;
+
+    background: #161616;
+
+    border: 1px solid #2b2b2b;
+
+    border-radius: 10px;
+
+    color: white;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #ff6a00;
+}
+
+.form-group small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #666;
+
+    font-size: 10px;
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+
+/* DELIVERY */
+
+.delivery-options {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+.delivery-option {
+    cursor: pointer;
+}
+
+.delivery-option input {
+    display: none;
+}
+
+.delivery-option span {
+    height: 100%;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 17px;
+
+    background: #151515;
+
+    border: 1px solid #292929;
+
+    border-radius: 12px;
+
+    transition: .2s ease;
+}
+
+.delivery-option input:checked + span {
+    border-color: #ff6a00;
+
+    background: rgba(255,106,0,.08);
+}
+
+.delivery-option strong {
+    color: white;
+}
+
+.delivery-option small {
+    color: #777;
+}
+
+
+/* COD */
+
+.cod-box {
+    display: grid;
+
+    grid-template-columns: 45px 1fr 35px;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background: rgba(255,106,0,.07);
+
+    border: 1px solid #ff6a00;
+}
+
+.cod-icon {
+    font-size: 25px;
+}
+
+.cod-box strong {
+    font-size: 14px;
+}
+
+.cod-box p {
+    margin: 4px 0 0;
+
+    color: #777;
+
+    font-size: 11px;
+}
+
+.cod-check {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ff6a00;
+
+    border-radius: 50%;
+
+    font-weight: 900;
+}
+
+
+/* ORDER SUMMARY */
+
+.checkout-product {
+    display: grid;
+
+    grid-template-columns: 55px 1fr auto;
+
+    gap: 12px;
+
+    align-items: center;
+
+    margin-bottom: 14px;
+}
+
+.checkout-product img {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 9px;
+
+    object-fit: cover;
+}
+
+.checkout-product-name {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.checkout-product-quantity {
+    display: block;
+
+    color: #777;
+
+    margin-top: 4px;
+
+    font-size: 11px;
+}
+
+.checkout-product-price {
+    color: #ff6a00;
+
+    font-size: 13px;
+
+    font-weight: 900;
+}
+
+.checkout-summary-line {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 12px 0;
+
+    border-top: 1px solid #202020;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+.checkout-summary-line strong {
+    color: white;
+
+    text-align: right;
+}
+
+.checkout-grand-total {
+    font-size: 16px;
+}
+
+.checkout-grand-total strong {
+    font-size: 23px;
+
+    color: #ff6a00;
+}
+
+
+/* PLACE ORDER */
+
+.place-order-btn {
+    width: 100%;
+
+    padding: 17px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #ff6a00;
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+.place-order-btn:hover {
+    background: #ff7a18;
+}
+
+.checkout-note {
+    color: #666;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    margin-top: 12px;
+}
+
+
+/* =====================================
+   ORDER SUCCESS
+===================================== */
+
+.order-success-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20000;
+
+    background: rgba(0,0,0,.9);
+
+    backdrop-filter: blur(8px);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s ease;
+}
+
+.order-success-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.order-success-box {
+    width: min(420px, 100%);
+
+    background: #111;
+
+    border: 1px solid #292929;
+
+    border-radius: 22px;
+
+    padding: 40px 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    color: white;
+}
+
+.success-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #ff6a00;
+
+    border-radius: 50%;
+
+    font-size: 35px;
+
+    font-weight: 900;
+}
+
+.success-small {
+    color: #ff6a00;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.order-success-box h2 {
+    font-size: 31px;
+
+    margin: 8px 0;
+}
+
+.order-success-box p {
+    color: #888;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.order-number-box {
+    margin: 25px 0;
+
+    padding: 18px;
+
+    background: #181818;
+
+    border: 1px dashed #ff6a00;
+
+    border-radius: 12px;
+}
+
+.order-number-box span {
+    display: block;
+
+    color: #777;
+
+    font-size: 10px;
+
+    margin-bottom: 8px;
+}
+
+.order-number-box strong {
+    color: white;
+
+    font-size: 22px;
+
+    letter-spacing: 1px;
+}
+
+.success-btn {
+    width: 100%;
+
+    background: #ff6a00;
+
+    color: white;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .delivery-options {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-content {
+        padding: 20px;
+    }
+
+}
+    
     <style>
         * {
             margin: 0;
@@ -1104,10 +1679,9 @@
             <strong id="cartTotal">0 DA</strong>
         </div>
 
-        <button class="checkout-btn">
-            Proceed to Checkout
-        </button>
-
+        <button class="checkout-btn" onclick="openCheckout()">
+         Proceed to Checkout
+       </button>
         <p class="cart-payment-note">
             Cash on Delivery available across Algeria 🇩🇿
         </p>
@@ -1116,6 +1690,729 @@
 
 </div>
 
+    <!-- CHECKOUT OVERLAY -->
+<div class="checkout-overlay" id="checkoutOverlay"></div>
+
+<!-- CHECKOUT -->
+<div class="checkout-modal" id="checkoutModal">
+
+    <div class="checkout-header">
+
+        <div>
+            <span class="checkout-small-title">S1KO ALGERIA</span>
+            <h2>Checkout</h2>
+        </div>
+
+        <button class="close-checkout" onclick="closeCheckout()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="checkout-content">
+
+        <form id="checkoutForm">
+
+            <!-- CUSTOMER -->
+            <div class="checkout-section">
+
+                <h3>Customer Information</h3>
+
+                <div class="form-group">
+
+                    <label>Full Name *</label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Phone Number *</label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="0550 00 00 00"
+                        maxlength="10"
+                        required
+                    >
+
+                    <small>
+                        Algerian mobile number starting with 05, 06 or 07
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- DELIVERY -->
+            <div class="checkout-section">
+
+                <h3>Delivery Information</h3>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>Wilaya *</label>
+
+                        <select id="customerWilaya" required>
+
+                            <option value="">
+                                Select Wilaya
+                            </option>
+
+                            <option value="01 - Adrar">01 - Adrar</option>
+                            <option value="02 - Chlef">02 - Chlef</option>
+                            <option value="03 - Laghouat">03 - Laghouat</option>
+                            <option value="04 - Oum El Bouaghi">04 - Oum El Bouaghi</option>
+                            <option value="05 - Batna">05 - Batna</option>
+                            <option value="06 - Béjaïa">06 - Béjaïa</option>
+                            <option value="07 - Biskra">07 - Biskra</option>
+                            <option value="08 - Béchar">08 - Béchar</option>
+                            <option value="09 - Blida">09 - Blida</option>
+                            <option value="10 - Bouira">10 - Bouira</option>
+                            <option value="11 - Tamanrasset">11 - Tamanrasset</option>
+                            <option value="12 - Tébessa">12 - Tébessa</option>
+                            <option value="13 - Tlemcen">13 - Tlemcen</option>
+                            <option value="14 - Tiaret">14 - Tiaret</option>
+                            <option value="15 - Tizi Ouzou">15 - Tizi Ouzou</option>
+                            <option value="16 - Alger">16 - Alger</option>
+                            <option value="17 - Djelfa">17 - Djelfa</option>
+                            <option value="18 - Jijel">18 - Jijel</option>
+                            <option value="19 - Sétif">19 - Sétif</option>
+                            <option value="20 - Saïda">20 - Saïda</option>
+                            <option value="21 - Skikda">21 - Skikda</option>
+                            <option value="22 - Sidi Bel Abbès">22 - Sidi Bel Abbès</option>
+                            <option value="23 - Annaba">23 - Annaba</option>
+                            <option value="24 - Guelma">24 - Guelma</option>
+                            <option value="25 - Constantine">25 - Constantine</option>
+                            <option value="26 - Médéa">26 - Médéa</option>
+                            <option value="27 - Mostaganem">27 - Mostaganem</option>
+                            <option value="28 - M'Sila">28 - M'Sila</option>
+                            <option value="29 - Mascara">29 - Mascara</option>
+                            <option value="30 - Ouargla">30 - Ouargla</option>
+                            <option value="31 - Oran">31 - Oran</option>
+                            <option value="32 - El Bayadh">32 - El Bayadh</option>
+                            <option value="33 - Illizi">33 - Illizi</option>
+                            <option value="34 - Bordj Bou Arréridj">34 - Bordj Bou Arréridj</option>
+                            <option value="35 - Boumerdès">35 - Boumerdès</option>
+                            <option value="36 - El Tarf">36 - El Tarf</option>
+                            <option value="37 - Tindouf">37 - Tindouf</option>
+                            <option value="38 - Tissemsilt">38 - Tissemsilt</option>
+                            <option value="39 - El Oued">39 - El Oued</option>
+                            <option value="40 - Khenchela">40 - Khenchela</option>
+                            <option value="41 - Souk Ahras">41 - Souk Ahras</option>
+                            <option value="42 - Tipaza">42 - Tipaza</option>
+                            <option value="43 - Mila">43 - Mila</option>
+                            <option value="44 - Aïn Defla">44 - Aïn Defla</option>
+                            <option value="45 - Naâma">45 - Naâma</option>
+                            <option value="46 - Aïn Témouchent">46 - Aïn Témouchent</option>
+                            <option value="47 - Ghardaïa">47 - Ghardaïa</option>
+                            <option value="48 - Relizane">48 - Relizane</option>
+                            <option value="49 - Timimoun">49 - Timimoun</option>
+                            <option value="50 - Bordj Badji Mokhtar">50 - Bordj Badji Mokhtar</option>
+                            <option value="51 - Ouled Djellal">51 - Ouled Djellal</option>
+                            <option value="52 - Béni Abbès">52 - Béni Abbès</option>
+                            <option value="53 - In Salah">53 - In Salah</option>
+                            <option value="54 - In Guezzam">54 - In Guezzam</option>
+                            <option value="55 - Touggourt">55 - Touggourt</option>
+                            <option value="56 - Djanet">56 - Djanet</option>
+                            <option value="57 - El M'Ghair">57 - El M'Ghair</option>
+                            <option value="58 - El Meniaa">58 - El Meniaa</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Commune *</label>
+
+                        <input
+                            type="text"
+                            id="customerCommune"
+                            placeholder="Commune"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Full Address *</label>
+
+                    <input
+                        type="text"
+                        id="customerAddress"
+                        placeholder="Street, building, neighborhood..."
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Delivery Type</label>
+
+                    <div class="delivery-options">
+
+                        <label class="delivery-option">
+
+                            <input
+                                type="radio"
+                                name="deliveryType"
+                                value="Home Delivery"
+                                checked
+                            >
+
+                            <span>
+                                🏠
+                                <strong>Home Delivery</strong>
+                                <small>Delivered to your address</small>
+                            </span>
+
+                        </label>
+
+
+                        <label class="delivery-option">
+
+                            <input
+                                type="radio"
+                                name="deliveryType"
+                                value="Office Delivery"
+                            >
+
+                            <span>
+                                📦
+                                <strong>Delivery Office</strong>
+                                <small>Collect from delivery office</small>
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="checkout-section">
+
+                <h3>Payment</h3>
+
+                <div class="cod-box">
+
+                    <div class="cod-icon">
+                        💵
+                    </div>
+
+                    <div>
+                        <strong>Cash on Delivery</strong>
+
+                        <p>
+                            Pay when your order arrives.
+                        </p>
+                    </div>
+
+                    <span class="cod-check">
+                        ✓
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+
+            <div class="checkout-section">
+
+                <h3>Order Summary</h3>
+
+                <div
+                    class="checkout-products"
+                    id="checkoutProducts"
+                >
+                </div>
+
+
+                <div class="checkout-summary-line">
+
+                    <span>Products</span>
+
+                    <strong id="checkoutSubtotal">
+                        0 DA
+                    </strong>
+
+                </div>
+
+
+                <div class="checkout-summary-line">
+
+                    <span>Delivery</span>
+
+                    <strong>
+                        Calculated after confirmation
+                    </strong>
+
+                </div>
+
+
+                <div class="checkout-summary-line checkout-grand-total">
+
+                    <span>Total</span>
+
+                    <strong id="checkoutTotal">
+                        0 DA
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="place-order-btn"
+            >
+                Place Order
+            </button>
+
+
+            <p class="checkout-note">
+                By placing your order, you confirm that the information provided is correct.
+            </p>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ORDER SUCCESS -->
+
+<div class="order-success-overlay" id="orderSuccessOverlay">
+
+    <div class="order-success-box">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <span class="success-small">
+            ORDER CONFIRMED
+        </span>
+
+        <h2>Thank you!</h2>
+
+        <p>
+            Your S1KO order has been received.
+        </p>
+
+        <div class="order-number-box">
+
+            <span>Your Order Number</span>
+
+            <strong id="successOrderNumber">
+                S1KO-0000
+            </strong>
+
+        </div>
+
+        <p class="success-message">
+            Keep your order number to track your delivery.
+        </p>
+
+        <button
+            class="success-btn"
+            onclick="closeOrderSuccess()"
+        >
+            Continue Shopping
+        </button>
+
+    </div>
+
+</div>
+
+    /* =====================================
+   CHECKOUT
+===================================== */
+
+function openCheckout() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+    }
+
+
+    closeCart();
+
+
+    document
+        .getElementById("checkoutOverlay")
+        .classList.add("active");
+
+
+    document
+        .getElementById("checkoutModal")
+        .classList.add("active");
+
+
+    document.body.style.overflow = "hidden";
+
+
+    updateCheckoutSummary();
+
+}
+
+
+function closeCheckout() {
+
+    document
+        .getElementById("checkoutOverlay")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("checkoutModal")
+        .classList.remove("active");
+
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* =====================================
+   CHECKOUT SUMMARY
+===================================== */
+
+function updateCheckoutSummary() {
+
+    const container =
+        document.getElementById("checkoutProducts");
+
+
+    const subtotalElement =
+        document.getElementById("checkoutSubtotal");
+
+
+    const totalElement =
+        document.getElementById("checkoutTotal");
+
+
+    container.innerHTML = "";
+
+
+    let total = 0;
+
+
+    cart.forEach(item => {
+
+        total += item.price * item.quantity;
+
+
+        const product =
+            document.createElement("div");
+
+
+        product.className =
+            "checkout-product";
+
+
+        product.innerHTML = `
+
+            <img
+                src="${item.image}"
+                alt="${item.name}"
+            >
+
+            <div>
+
+                <div class="checkout-product-name">
+                    ${item.name}
+                </div>
+
+                <span class="checkout-product-quantity">
+                    Quantity: ${item.quantity}
+                </span>
+
+            </div>
+
+            <div class="checkout-product-price">
+                ${formatPrice(item.price * item.quantity)}
+            </div>
+
+        `;
+
+
+        container.appendChild(product);
+
+    });
+
+
+    subtotalElement.textContent =
+        formatPrice(total);
+
+
+    totalElement.textContent =
+        formatPrice(total);
+
+}
+
+
+/* =====================================
+   GENERATE ORDER NUMBER
+===================================== */
+
+function generateOrderNumber() {
+
+    let counter =
+        parseInt(
+            localStorage.getItem("s1koOrderCounter")
+        ) || 0;
+
+
+    counter++;
+
+
+    localStorage.setItem(
+        "s1koOrderCounter",
+        counter
+    );
+
+
+    const year =
+        new Date().getFullYear();
+
+
+    return (
+        "S1KO-" +
+        year +
+        "-" +
+        String(counter).padStart(4, "0")
+    );
+
+}
+
+
+/* =====================================
+   PLACE ORDER
+===================================== */
+
+document
+    .getElementById("checkoutForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document
+                .getElementById("customerName")
+                .value
+                .trim();
+
+
+        const phone =
+            document
+                .getElementById("customerPhone")
+                .value
+                .replace(/\s/g, "");
+
+
+        const wilaya =
+            document
+                .getElementById("customerWilaya")
+                .value;
+
+
+        const commune =
+            document
+                .getElementById("customerCommune")
+                .value
+                .trim();
+
+
+        const address =
+            document
+                .getElementById("customerAddress")
+                .value
+                .trim();
+
+
+        const deliveryType =
+            document.querySelector(
+                'input[name="deliveryType"]:checked'
+            ).value;
+
+
+        /* PHONE VALIDATION */
+
+        const phonePattern =
+            /^0[567][0-9]{8}$/;
+
+
+        if (!phonePattern.test(phone)) {
+
+            alert(
+                "Please enter a valid Algerian mobile number."
+            );
+
+            return;
+        }
+
+
+        /* CALCULATE TOTAL */
+
+        let total = 0;
+
+
+        cart.forEach(item => {
+
+            total +=
+                item.price *
+                item.quantity;
+
+        });
+
+
+        /* ORDER NUMBER */
+
+        const orderNumber =
+            generateOrderNumber();
+
+
+        /* CREATE ORDER */
+
+        const order = {
+
+            orderNumber: orderNumber,
+
+            customer: {
+                name: name,
+                phone: phone,
+                wilaya: wilaya,
+                commune: commune,
+                address: address
+            },
+
+            deliveryType:
+                deliveryType,
+
+            payment:
+                "Cash on Delivery",
+
+            products:
+                [...cart],
+
+            total:
+                total,
+
+            status:
+                "Order Received",
+
+            createdAt:
+                new Date().toISOString()
+
+        };
+
+
+        /* SAVE ORDER */
+
+        let orders =
+            JSON.parse(
+                localStorage.getItem("s1koOrders")
+            ) || [];
+
+
+        orders.push(order);
+
+
+        localStorage.setItem(
+            "s1koOrders",
+            JSON.stringify(orders)
+        );
+
+
+        /* CLEAR CART */
+
+        cart = [];
+
+        saveCart();
+
+        updateCart();
+
+
+        /* RESET FORM */
+
+        document
+            .getElementById("checkoutForm")
+            .reset();
+
+
+        /* CLOSE CHECKOUT */
+
+        closeCheckout();
+
+
+        /* SHOW ORDER NUMBER */
+
+        document
+            .getElementById("successOrderNumber")
+            .textContent =
+            orderNumber;
+
+
+        document
+            .getElementById("orderSuccessOverlay")
+            .classList.add("active");
+
+
+        document.body.style.overflow =
+            "hidden";
+
+    });
+
+
+/* =====================================
+   SUCCESS CLOSE
+===================================== */
+
+function closeOrderSuccess() {
+
+    document
+        .getElementById("orderSuccessOverlay")
+        .classList.remove("active");
+
+
+    document.body.style.overflow = "";
+
+}
+    
   <script>
 
 let cart = JSON.parse(localStorage.getItem("s1koCart")) || [];
