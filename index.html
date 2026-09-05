@@ -1851,32 +1851,7 @@
 
 </div>
 
-  
-            <img
-                src="${item.image}"
-                alt="${item.name}"
-            >
-
-            <div>
-
-                <div class="checkout-product-name">
-                    ${item.name}
-                </div>
-
-                <span class="checkout-product-quantity">
-                    Quantity: ${item.quantity}
-                </span>
-
-            </div>
-
-            <div class="checkout-product-price">
-                ${formatPrice(item.price * item.quantity)}
-            </div>
-
-        `;
-
-      
-    
+          
   <script>
 
 let cart = JSON.parse(localStorage.getItem("s1koCart")) || [];
